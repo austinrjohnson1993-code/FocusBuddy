@@ -15,14 +15,13 @@
       --deep: #161b27;
       --card: #1c2333;
       --border: rgba(255,255,255,0.07);
-      --amber: #f5a623;
-      --amber-soft: rgba(245,166,35,0.12);
-      --amber-glow: rgba(245,166,35,0.25);
+      --teal: #2dd4bf;
+      --teal-soft: rgba(45,212,191,0.10);
+      --teal-glow: rgba(45,212,191,0.22);
       --cream: #f0ead6;
-      --muted: rgba(240,234,214,0.5);
-      --soft: rgba(240,234,214,0.7);
+      --muted: rgba(240,234,214,0.45);
+      --soft: rgba(240,234,214,0.68);
       --green: #3ecf8e;
-      --blue: #4a9eff;
       --radius: 16px;
     }
 
@@ -37,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -48,20 +46,16 @@
       opacity: 0.6;
     }
 
-    /* ── AMBIENT GLOW ── */
     .glow-top {
       position: fixed;
-      top: -200px;
-      left: 50%;
+      top: -200px; left: 50%;
       transform: translateX(-50%);
-      width: 800px;
-      height: 500px;
-      background: radial-gradient(ellipse, rgba(245,166,35,0.08) 0%, transparent 70%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(45,212,191,0.07) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -70,7 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(13,17,23,0.8);
+      background: rgba(13,17,23,0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -82,11 +76,10 @@
       color: var(--cream);
       letter-spacing: -0.02em;
     }
-
-    .logo span { color: var(--amber); }
+    .logo span { color: var(--teal); }
 
     .nav-cta {
-      background: var(--amber);
+      background: var(--teal);
       color: var(--night);
       border: none;
       padding: 10px 24px;
@@ -98,10 +91,8 @@
       transition: all 0.2s;
       text-decoration: none;
     }
+    .nav-cta:hover { background: #5eead4; transform: translateY(-1px); }
 
-    .nav-cta:hover { background: #ffc04a; transform: translateY(-1px); }
-
-    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -118,9 +109,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--amber-soft);
-      border: 1px solid rgba(245,166,35,0.3);
-      color: var(--amber);
+      background: var(--teal-soft);
+      border: 1px solid rgba(45,212,191,0.3);
+      color: var(--teal);
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.08em;
@@ -130,18 +121,17 @@
       margin-bottom: 32px;
       animation: fadeUp 0.6s ease both;
     }
-
     .hero-badge::before {
       content: '';
       width: 6px; height: 6px;
-      background: var(--amber);
+      background: var(--teal);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
+      50% { opacity: 0.4; transform: scale(0.8); }
     }
 
     h1 {
@@ -154,22 +144,18 @@
       max-width: 900px;
       animation: fadeUp 0.7s 0.1s ease both;
     }
-
-    h1 em {
-      font-style: italic;
-      color: var(--amber);
-    }
+    h1 em { font-style: italic; color: var(--teal); }
 
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: var(--soft);
-      max-width: 560px;
+      max-width: 580px;
       margin: 28px auto 0;
       font-weight: 300;
       animation: fadeUp 0.7s 0.2s ease both;
     }
+    .hero-sub strong { color: var(--cream); font-weight: 500; }
 
-    /* ── EMAIL FORM ── */
     .waitlist-form {
       margin-top: 48px;
       display: flex;
@@ -184,19 +170,16 @@
     .form-row {
       display: flex;
       width: 100%;
-      gap: 0;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 100px;
       padding: 6px 6px 6px 24px;
       transition: border-color 0.2s;
     }
-
     .form-row:focus-within {
-      border-color: rgba(245,166,35,0.5);
-      box-shadow: 0 0 0 3px var(--amber-glow);
+      border-color: rgba(45,212,191,0.5);
+      box-shadow: 0 0 0 3px var(--teal-glow);
     }
-
     .form-row input {
       flex: 1;
       background: transparent;
@@ -207,11 +190,9 @@
       font-size: 0.95rem;
       min-width: 0;
     }
-
     .form-row input::placeholder { color: var(--muted); }
-
     .form-row button {
-      background: var(--amber);
+      background: var(--teal);
       color: var(--night);
       border: none;
       padding: 12px 28px;
@@ -223,15 +204,10 @@
       transition: all 0.2s;
       white-space: nowrap;
     }
+    .form-row button:hover { background: #5eead4; }
 
-    .form-row button:hover { background: #ffc04a; }
-
-    .form-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .form-note span { color: var(--amber); }
+    .form-note { font-size: 0.78rem; color: var(--muted); }
+    .form-note span { color: var(--teal); }
 
     .success-msg {
       display: none;
@@ -244,7 +220,6 @@
       text-align: center;
     }
 
-    /* ── SOCIAL PROOF ── */
     .social-proof {
       margin-top: 56px;
       display: flex;
@@ -252,11 +227,7 @@
       gap: 16px;
       animation: fadeUp 0.7s 0.4s ease both;
     }
-
-    .avatars {
-      display: flex;
-    }
-
+    .avatars { display: flex; }
     .avatars .av {
       width: 34px; height: 34px;
       border-radius: 50%;
@@ -268,37 +239,25 @@
       justify-content: center;
       font-weight: 700;
     }
-
     .av:first-child { margin-left: 0; }
     .av-1 { background: #4a9eff; color: white; }
     .av-2 { background: #9b59b6; color: white; }
     .av-3 { background: #e74c3c; color: white; }
-    .av-4 { background: var(--amber); color: var(--night); }
-
+    .av-4 { background: var(--teal); color: var(--night); }
     .social-text { font-size: 0.85rem; color: var(--soft); }
     .social-text strong { color: var(--cream); }
 
-    /* ── SECTION SHARED ── */
-    section {
-      position: relative;
-      z-index: 1;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    section { position: relative; z-index: 1; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
     .section-label {
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--amber);
+      color: var(--teal);
       margin-bottom: 16px;
     }
-
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3.2rem);
@@ -308,10 +267,8 @@
       color: var(--cream);
       max-width: 700px;
     }
+    .section-title em { color: var(--teal); font-style: italic; }
 
-    .section-title em { color: var(--amber); font-style: italic; }
-
-    /* ── PROBLEM SECTION ── */
     .problem {
       padding: 100px 0;
       background: var(--deep);
@@ -319,86 +276,78 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .problem-hook {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-style: italic;
+      color: var(--teal);
+      margin-top: 14px;
+    }
+
     .problem-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: center;
+      align-items: start;
       margin-top: 56px;
     }
 
-    .pain-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    .pain-list { display: flex; flex-direction: column; gap: 16px; }
 
     .pain-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: 20px;
-      background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      transition: border-color 0.2s, transform 0.2s;
+      background: rgba(255,255,255,0.03);
+      overflow: hidden;
+      transition: border-color 0.2s;
+      cursor: pointer;
     }
+    .pain-item:hover { border-color: rgba(45,212,191,0.25); }
+    .pain-item.open { border-color: rgba(45,212,191,0.4); }
 
-    .pain-item:hover {
-      border-color: rgba(245,166,35,0.2);
-      transform: translateX(4px);
+    .pain-header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 20px;
     }
+    .pain-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .pain-title { flex: 1; font-size: 0.95rem; font-weight: 600; color: var(--cream); }
+    .pain-arrow { font-size: 0.75rem; color: var(--teal); transition: transform 0.3s; flex-shrink: 0; }
+    .pain-item.open .pain-arrow { transform: rotate(180deg); }
 
-    .pain-icon {
-      font-size: 1.4rem;
-      line-height: 1;
-      flex-shrink: 0;
-      margin-top: 2px;
+    .pain-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
     }
+    .pain-item.open .pain-dropdown { max-height: 220px; padding: 0 20px 20px; }
 
-    .pain-text strong {
-      display: block;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--cream);
-      margin-bottom: 4px;
-    }
-
-    .pain-text p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.5;
+    .pain-dropdown-inner { border-top: 1px solid var(--border); padding-top: 16px; }
+    .pain-dropdown p { font-size: 0.87rem; color: var(--soft); line-height: 1.65; margin-bottom: 10px; }
+    .pain-personal {
+      font-size: 0.84rem;
+      font-style: italic;
+      color: var(--teal);
+      border-left: 2px solid var(--teal);
+      padding-left: 12px;
+      margin-bottom: 0 !important;
     }
 
     .big-quote {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
       font-weight: 400;
       font-style: italic;
       line-height: 1.4;
       color: var(--cream);
     }
+    .big-quote em { color: var(--teal); font-style: normal; }
+    .big-quote-attr { margin-top: 20px; font-size: 0.85rem; color: var(--muted); }
 
-    .big-quote em {
-      color: var(--amber);
-      font-style: normal;
-    }
-
-    .big-quote-attr {
-      margin-top: 20px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* ── FEATURES ── */
-    .features {
-      padding: 100px 0;
-    }
-
-    .features-header {
-      max-width: 600px;
-      margin-bottom: 64px;
-    }
+    .features { padding: 100px 0; }
+    .features-header { max-width: 600px; margin-bottom: 64px; }
 
     .features-grid {
       display: grid;
@@ -414,28 +363,26 @@
       transition: border-color 0.3s, transform 0.3s;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
-
     .feature-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
-
-    .feature-card:hover {
-      border-color: rgba(245,166,35,0.3);
+    .feature-card:hover, .feature-card.expanded {
+      border-color: rgba(45,212,191,0.3);
       transform: translateY(-4px);
     }
-
-    .feature-card:hover::before { opacity: 1; }
+    .feature-card:hover::before, .feature-card.expanded::before { opacity: 1; }
 
     .feature-icon {
       width: 48px; height: 48px;
-      background: var(--amber-soft);
+      background: var(--teal-soft);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -443,7 +390,6 @@
       font-size: 1.4rem;
       margin-bottom: 20px;
     }
-
     .feature-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
@@ -452,11 +398,30 @@
       margin-bottom: 10px;
       letter-spacing: -0.01em;
     }
+    .feature-card .feature-summary { font-size: 0.88rem; color: var(--soft); line-height: 1.6; }
 
-    .feature-card p {
-      font-size: 0.88rem;
+    .feature-expand { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .feature-card.expanded .feature-expand { max-height: 220px; }
+
+    .feature-expand-inner {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .feature-expand-inner ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .feature-expand-inner li {
+      font-size: 0.82rem;
       color: var(--soft);
-      line-height: 1.6;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .feature-expand-inner li::before {
+      content: '→';
+      color: var(--teal);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      margin-top: 1px;
     }
 
     .feature-tag {
@@ -466,13 +431,13 @@
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--amber);
-      background: var(--amber-soft);
+      color: var(--teal);
+      background: var(--teal-soft);
       padding: 4px 10px;
       border-radius: 100px;
     }
+    .feature-hint { font-size: 0.72rem; color: var(--muted); margin-top: 10px; }
 
-    /* ── HOW IT WORKS ── */
     .how {
       padding: 100px 0;
       background: var(--deep);
@@ -487,7 +452,6 @@
       margin-top: 60px;
       position: relative;
     }
-
     .steps::before {
       content: '';
       position: absolute;
@@ -495,21 +459,14 @@
       left: calc(16% + 28px);
       right: calc(16% + 28px);
       height: 1px;
-      background: linear-gradient(90deg, var(--amber), transparent 50%, var(--amber));
-      opacity: 0.3;
+      background: linear-gradient(90deg, var(--teal), transparent 50%, var(--teal));
+      opacity: 0.25;
     }
-
-    .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
+    .step { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .step-num {
       width: 56px; height: 56px;
-      background: var(--card);
-      border: 2px solid rgba(245,166,35,0.4);
+      background: var(--deep);
+      border: 2px solid rgba(45,212,191,0.4);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -517,60 +474,62 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
       font-weight: 700;
-      color: var(--amber);
+      color: var(--teal);
       margin-bottom: 24px;
       position: relative;
       z-index: 1;
-      background: var(--deep);
     }
+    .step h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--cream); margin-bottom: 10px; }
+    .step p { font-size: 0.87rem; color: var(--soft); line-height: 1.6; }
 
-    .step h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin-bottom: 10px;
-    }
-
-    .step p {
-      font-size: 0.87rem;
-      color: var(--soft);
-      line-height: 1.6;
-    }
-
-    /* ── FINAL CTA ── */
     .cta-section {
-      padding: 120px 24px;
+      padding: 130px 24px;
       text-align: center;
       position: relative;
       z-index: 1;
+      overflow: hidden;
     }
-
-    .cta-inner {
-      max-width: 680px;
-      margin: 0 auto;
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(45,212,191,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
+    .cta-inner { max-width: 700px; margin: 0 auto; }
 
+    .cta-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
     .cta-section h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.03em;
       color: var(--cream);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
+    .cta-section h2 em { color: var(--teal); font-style: italic; }
 
-    .cta-section h2 em { color: var(--amber); font-style: italic; }
-
-    .cta-section p {
-      font-size: 1.05rem;
+    .cta-body {
+      font-size: 1.1rem;
       color: var(--soft);
-      margin-bottom: 40px;
+      margin-bottom: 16px;
       font-weight: 300;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    .cta-urgency { font-size: 0.88rem; color: var(--teal); margin-bottom: 40px; font-weight: 500; }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 40px;
@@ -580,28 +539,16 @@
       position: relative;
       z-index: 1;
     }
-
     footer .logo { font-size: 1.1rem; }
     footer p { font-size: 0.8rem; color: var(--muted); }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       .problem-grid, .features-grid, .steps { grid-template-columns: 1fr; }
@@ -612,30 +559,29 @@
   </style>
 </head>
 <body>
-
   <div class="glow-top"></div>
 
-  <!-- NAV -->
   <nav>
     <div class="logo">Focus<span>Buddy</span></div>
-    <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    <a href="#waitlist-bottom" class="nav-cta">Join Waitlist</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-badge">Early Access — Join the Waitlist</div>
     <h1>Your brain isn't<br>broken. It just needs<br>a better <em>buddy.</em></h1>
-    <p class="hero-sub">FocusBuddy is the first AI support companion built specifically for how ADHD brains actually work — reaching out to you, adapting to you, never leaving you behind.</p>
+    <p class="hero-sub">
+      FocusBuddy is the AI support companion built for how ADHD brains actually work —
+      <strong>helping you deal with the mess and clutter of everyday life,</strong>
+      reaching out to you, adapting to you, and never leaving you behind.
+    </p>
 
     <div class="waitlist-form" id="waitlist">
       <div class="form-row">
         <input type="email" id="email-input" placeholder="your@email.com" required />
-        <button type="button" onclick="submitForm()">Get Early Access</button>
+        <button type="button" onclick="submitForm('email-input','success-msg')">Get Early Access</button>
       </div>
       <p class="form-note">Free to join. No spam. Ever. <span>Be first when we launch.</span></p>
-      <div class="success-msg" id="success-msg">
-        🎉 You're on the list! We'll reach out when FocusBuddy is ready.
-      </div>
+      <div class="success-msg" id="success-msg">🎉 You're on the list! We'll reach out when FocusBuddy is ready.</div>
     </div>
 
     <div class="social-proof">
@@ -649,42 +595,71 @@
     </div>
   </section>
 
-  <!-- PROBLEM -->
   <section class="problem">
     <div class="container">
       <div class="section-label">The Problem</div>
       <h2 class="section-title">Every productivity app assumes you'll <em>remember to use it.</em></h2>
+      <p class="problem-hook">None of them make sure you do.</p>
 
       <div class="problem-grid reveal">
         <div class="pain-list">
-          <div class="pain-item">
-            <div class="pain-icon">⏰</div>
-            <div class="pain-text">
-              <strong>Time blindness is real</strong>
-              <p>You know you have things to do. Then hours disappear and you're not sure where they went.</p>
+
+          <div class="pain-item" onclick="togglePain(this)">
+            <div class="pain-header">
+              <div class="pain-icon">⏰</div>
+              <div class="pain-title">Time blindness is real</div>
+              <div class="pain-arrow">▼</div>
+            </div>
+            <div class="pain-dropdown">
+              <div class="pain-dropdown-inner">
+                <p>You know you have things to do. You intend to start. Then you look up and hours have vanished — and you genuinely don't know where they went. This isn't a character flaw. It's how ADHD affects your brain's internal clock.</p>
+                <p class="pain-personal">"I set a reminder. Then I dismissed it. Then I forgot I dismissed it."</p>
+              </div>
             </div>
           </div>
-          <div class="pain-item">
-            <div class="pain-icon">📋</div>
-            <div class="pain-text">
-              <strong>To-do lists become shame lists</strong>
-              <p>Undone tasks pile up. Every time you open the app, you're reminded of everything you didn't do.</p>
+
+          <div class="pain-item" onclick="togglePain(this)">
+            <div class="pain-header">
+              <div class="pain-icon">📋</div>
+              <div class="pain-title">To-do lists become shame lists</div>
+              <div class="pain-arrow">▼</div>
+            </div>
+            <div class="pain-dropdown">
+              <div class="pain-dropdown-inner">
+                <p>Every undone task is a record of a promise you didn't keep — to yourself. By day three, opening the app is painful. By day five, you've deleted it entirely.</p>
+                <p class="pain-personal">"I have 47 overdue tasks. I can't even look at it anymore."</p>
+              </div>
             </div>
           </div>
-          <div class="pain-item">
-            <div class="pain-icon">🧠</div>
-            <div class="pain-text">
-              <strong>Starting is the hardest part</strong>
-              <p>Task initiation isn't laziness. It's a neurological hurdle that no timer app has ever actually solved.</p>
+
+          <div class="pain-item" onclick="togglePain(this)">
+            <div class="pain-header">
+              <div class="pain-icon">🧠</div>
+              <div class="pain-title">Starting is the hardest part</div>
+              <div class="pain-arrow">▼</div>
+            </div>
+            <div class="pain-dropdown">
+              <div class="pain-dropdown-inner">
+                <p>Task initiation isn't about effort or motivation — it's a neurological wall. You can see exactly what needs to be done and still be completely unable to begin.</p>
+                <p class="pain-personal">"I spent three hours thinking about doing the thing instead of doing it."</p>
+              </div>
             </div>
           </div>
-          <div class="pain-item">
-            <div class="pain-icon">🌀</div>
-            <div class="pain-text">
-              <strong>Overwhelm shuts everything down</strong>
-              <p>Too many options, too many decisions, too much noise. The result is paralysis — not choice.</p>
+
+          <div class="pain-item" onclick="togglePain(this)">
+            <div class="pain-header">
+              <div class="pain-icon">🌀</div>
+              <div class="pain-title">Overwhelm shuts everything down</div>
+              <div class="pain-arrow">▼</div>
+            </div>
+            <div class="pain-dropdown">
+              <div class="pain-dropdown-inner">
+                <p>Too many options. Too many decisions. Too much noise. When the ADHD brain hits overload it doesn't prioritize — it freezes. It looks like laziness from the outside. From the inside, it feels like drowning.</p>
+                <p class="pain-personal">"I needed to do five things so I did none of them."</p>
+              </div>
             </div>
           </div>
+
         </div>
 
         <div>
@@ -695,7 +670,6 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section class="features">
     <div class="container">
       <div class="features-header reveal">
@@ -704,155 +678,181 @@
       </div>
 
       <div class="features-grid">
-        <div class="feature-card reveal">
+
+        <div class="feature-card reveal" onclick="toggleFeature(this)">
           <div class="feature-icon">🤝</div>
           <h3>It reaches out to you</h3>
-          <p>FocusBuddy checks in with you — morning, afternoon, evening. You don't have to remember to open it. It starts the conversation.</p>
+          <p class="feature-summary">FocusBuddy checks in with you — morning, afternoon, evening. You don't have to remember to open it. It starts the conversation.</p>
+          <div class="feature-expand"><div class="feature-expand-inner"><ul>
+            <li>Morning check-in asks what matters today</li>
+            <li>Midday nudge keeps you on track without nagging</li>
+            <li>Evening wrap-up celebrates what you did, not what you didn't</li>
+            <li>Adapts its timing to your patterns over time</li>
+          </ul></div></div>
           <span class="feature-tag">AI Check-ins</span>
+          <p class="feature-hint">▼ tap for details</p>
         </div>
 
-        <div class="feature-card reveal">
+        <div class="feature-card reveal" onclick="toggleFeature(this)">
           <div class="feature-icon">🔄</div>
           <h3>Tasks that never pile up</h3>
-          <p>Miss a task? It quietly reschedules itself. No shame spiral. No overwhelming backlog. Just a clean, honest new start.</p>
+          <p class="feature-summary">Miss a task? It quietly reschedules itself. No shame spiral. No overwhelming backlog. Just a clean, honest new start.</p>
+          <div class="feature-expand"><div class="feature-expand-inner"><ul>
+            <li>Incomplete tasks auto-roll to your next available slot</li>
+            <li>No manual re-entry or decision-making required</li>
+            <li>Prioritization that accounts for your energy levels</li>
+            <li>Visual and audio modes — engage however you're able</li>
+          </ul></div></div>
           <span class="feature-tag">Rolling To-Do Engine</span>
+          <p class="feature-hint">▼ tap for details</p>
         </div>
 
-        <div class="feature-card reveal">
+        <div class="feature-card reveal" onclick="toggleFeature(this)">
           <div class="feature-icon">🎧</div>
-          <h3>An AI body double</h3>
-          <p>Put your earbuds in and let FocusBuddy sit with you. A calm, human-like AI presence that helps you stay on task — just by being there.</p>
-          <span class="feature-tag">Body Double Sessions</span>
+          <h3>AI body double + focus audio</h3>
+          <p class="feature-summary">Put your earbuds in. A calm AI presence sits with you, coaches you through tasks, and plays curated focus music and binaural beats.</p>
+          <div class="feature-expand"><div class="feature-expand-inner"><ul>
+            <li>Audible AI companion during focus sessions</li>
+            <li>Built-in focus music and binaural beats for deep work</li>
+            <li>Gentle verbal coaching and task narration</li>
+            <li>Set session length from 10 minutes to a full work block</li>
+          </ul></div></div>
+          <span class="feature-tag">Body Double + Focus Audio</span>
+          <p class="feature-hint">▼ tap for details</p>
         </div>
 
-        <div class="feature-card reveal">
+        <div class="feature-card reveal" onclick="toggleFeature(this)">
           <div class="feature-icon">📅</div>
           <h3>Plugs into your life</h3>
-          <p>Syncs with Google Calendar, Apple Calendar, and more. FocusBuddy sees your actual schedule and works around it — not in a vacuum.</p>
+          <p class="feature-summary">Syncs with Google Calendar, Apple Calendar, and more. FocusBuddy sees your actual schedule and works around it — not in a vacuum.</p>
+          <div class="feature-expand"><div class="feature-expand-inner"><ul>
+            <li>Google, Apple, and Outlook calendar sync</li>
+            <li>Automatically finds open slots for your tasks</li>
+            <li>Adjusts when your day changes — no manual rescheduling</li>
+            <li>Future: healthcare appointment integration</li>
+          </ul></div></div>
           <span class="feature-tag">Calendar Integration</span>
+          <p class="feature-hint">▼ tap for details</p>
         </div>
 
-        <div class="feature-card reveal">
+        <div class="feature-card reveal" onclick="toggleFeature(this)">
           <div class="feature-icon">🧭</div>
           <h3>Real resources, when you need them</h3>
-          <p>A curated, searchable index of ADHD therapists, coaches, psychiatrists, and disability support resources — right inside the app.</p>
+          <p class="feature-summary">A curated, searchable index of ADHD therapists, coaches, psychiatrists, and disability support resources — right inside the app.</p>
+          <div class="feature-expand"><div class="feature-expand-inner"><ul>
+            <li>Vetted ADHD specialists searchable by region</li>
+            <li>Disability accommodation and benefits guidance</li>
+            <li>Peer support community access</li>
+            <li>Expanding to autism, OCD, and anxiety support</li>
+          </ul></div></div>
           <span class="feature-tag">Care Directory</span>
+          <p class="feature-hint">▼ tap for details</p>
         </div>
 
-        <div class="feature-card reveal">
+        <div class="feature-card reveal" onclick="toggleFeature(this)">
           <div class="feature-icon">❤️</div>
           <h3>Never makes you feel behind</h3>
-          <p>Designed from lived ADHD experience. Every interaction is built to reduce shame and friction — not add more of it.</p>
+          <p class="feature-summary">Designed from lived ADHD experience. Every interaction is built to reduce shame and friction — not pile on more of it.</p>
+          <div class="feature-expand"><div class="feature-expand-inner"><ul>
+            <li>Built by someone who lives with ADHD</li>
+            <li>No streaks, no shame mechanics, no guilt trips</li>
+            <li>Conversational AI support with responsible guardrails</li>
+            <li>Designed to complement therapy — not replace it</li>
+          </ul></div></div>
           <span class="feature-tag">ADHD-First Design</span>
+          <p class="feature-hint">▼ tap for details</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section class="how">
     <div class="container">
       <div class="reveal">
         <div class="section-label">How It Works</div>
         <h2 class="section-title">Set it up once. Let it do the rest.</h2>
       </div>
-
       <div class="steps">
         <div class="step reveal">
           <div class="step-num">1</div>
           <h3>Tell FocusBuddy about you</h3>
-          <p>A short, painless onboarding that learns your schedule, your goals, and when you work best. Set it once.</p>
+          <p>A short, painless onboarding that learns your schedule, goals, and when you work best. Set it once and forget about it.</p>
         </div>
         <div class="step reveal">
           <div class="step-num">2</div>
           <h3>FocusBuddy reaches out</h3>
-          <p>Every morning, it checks in with you. Asks what matters today. Helps you make a plan you can actually follow.</p>
+          <p>Every morning it checks in with you. Asks what matters today. Helps you build a plan your brain can actually follow through on.</p>
         </div>
         <div class="step reveal">
           <div class="step-num">3</div>
           <h3>It stays with you</h3>
-          <p>Gentle nudges, body-double sessions, evening check-ins. It adapts to how your day actually went — not how you planned it.</p>
+          <p>Gentle nudges, body-double focus sessions, evening check-ins. It adapts to how your day actually went — not how you planned it.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="cta-section">
+  <section class="cta-section" id="waitlist-bottom">
     <div class="cta-inner reveal">
-      <h2>You deserve support that actually <em>shows up.</em></h2>
-      <p>Join the waitlist and be among the first to try FocusBuddy when we launch. No cost. No commitment. Just a better way forward.</p>
+      <p class="cta-eyebrow">You've tried the other apps</p>
+      <h2>This time, the app<br>shows up <em>for you.</em></h2>
+      <p class="cta-body">FocusBuddy was built from lived experience — because the person who built it needed it too. You deserve a tool that actually understands what your days feel like.</p>
+      <p class="cta-urgency">✦ Early access is free. Be there from day one.</p>
 
-      <div class="waitlist-form" style="margin: 0 auto;">
+      <div class="waitlist-form" style="margin: 0 auto;" id="waitlist-bottom">
         <div class="form-row">
           <input type="email" id="email-input-2" placeholder="your@email.com" required />
-          <button type="button" onclick="submitForm2()">Get Early Access</button>
+          <button type="button" onclick="submitForm('email-input-2','success-msg-2')">I Want Early Access</button>
         </div>
-        <p class="form-note">Free to join. <span>Be first when we launch.</span></p>
-        <div class="success-msg" id="success-msg-2">
-          🎉 You're on the list! We'll reach out when FocusBuddy is ready.
-        </div>
+        <p class="form-note">No spam. No cost. <span>Just a better way forward.</span></p>
+        <div class="success-msg" id="success-msg-2">🎉 You're on the list! We'll reach out when FocusBuddy is ready.</div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="logo">Focus<span>Buddy</span></div>
     <p>Built with lived experience. Designed for real brains. &copy; 2025 FocusBuddy.</p>
   </footer>
 
   <script>
-    // ── FORMSPREE SUBMIT ──
     const FORMSPREE_URL = "https://formspree.io/f/maqpbqbe";
 
-    async function submitToFormspree(email, successId, inputId) {
+    async function submitForm(inputId, successId) {
+      const email = document.getElementById(inputId).value;
+      if (!email) return;
       const btn = event.target;
       btn.textContent = "Joining...";
       btn.disabled = true;
-
       try {
         const res = await fetch(FORMSPREE_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify({ email })
         });
-
         if (res.ok) {
-          document.getElementById(inputId).style.display = "none";
           document.getElementById(inputId).closest(".form-row").style.display = "none";
           document.getElementById(successId).style.display = "block";
         } else {
-          btn.textContent = "Try again";
-          btn.disabled = false;
+          btn.textContent = "Try again"; btn.disabled = false;
         }
-      } catch {
-        btn.textContent = "Try again";
-        btn.disabled = false;
-      }
+      } catch { btn.textContent = "Try again"; btn.disabled = false; }
     }
 
-    function submitForm() {
-      const email = document.getElementById("email-input").value;
-      if (!email) return;
-      submitToFormspree(email, "success-msg", "email-input");
+    function togglePain(el) {
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.pain-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
     }
 
-    function submitForm2() {
-      const email = document.getElementById("email-input-2").value;
-      if (!email) return;
-      submitToFormspree(email, "success-msg-2", "email-input-2");
-    }
+    function toggleFeature(el) { el.classList.toggle('expanded'); }
 
-    // ── SCROLL REVEAL ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add("visible"), i * 80);
-        }
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add("visible"), i * 80);
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
   </script>
 </body>
